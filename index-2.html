@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Guardian Group | Medical Insight and Testimony</title>
+  <meta name="description" content="Medical Insight and Testimony: For Legal Disputes. The Guardian Group connects attorneys with medical record analysis, medical opinion, and specialist testimony.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #080808;
+      --dark: #101010;
+      --ivory: #f3efe8;
+      --bronze: #c18246;
+      --bronze-light: #d7a26b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--ivory);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* Subtle architectural grid — no stock imagery */
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to right, black, transparent 95%);
+    }
+
+    .hero-glow {
+      background: radial-gradient(
+        ellipse at 75% 45%,
+        rgba(193,130,70,.13),
+        transparent 55%
+      );
+    }
+
+    /* Entrance animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: reveal-up .8s cubic-bezier(.2,.7,.2,1) forwards;
+    }
+
+    .delay-1 { animation-delay: .12s; }
+    .delay-2 { animation-delay: .24s; }
+    .delay-3 { animation-delay: .36s; }
+    .delay-4 { animation-delay: .48s; }
+
+    @keyframes reveal-up {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .draw-line {
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: draw .9s ease-out .4s forwards;
+    }
+
+    @keyframes draw {
+      to { transform: scaleX(1); }
+    }
+
+    /* Distinctive company-name banner */
+    .brand-link {
+      position: relative;
+      transition: color .25s ease;
+    }
+
+    .brand-link::after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--bronze);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .brand-link:hover { color: var(--bronze-light); }
+    .brand-link:hover::after { transform: scaleX(1); }
+
+    /* Interactive service cards */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background-color .35s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: var(--bronze);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(193,130,70,.6);
+      background: #fffdf9;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-arrow {
+      transition: transform .3s ease, color .3s ease;
+    }
+
+    .service-card:hover .service-arrow {
+      transform: translate(4px, -4px);
+      color: var(--bronze);
+    }
+
+    .pyramid-tier {
+      transition: border-color .3s ease, background-color .3s ease;
+    }
+
+    .pyramid-tier:hover {
+      border-color: rgba(193,130,70,.8);
+      background: rgba(255,255,255,.045);
+    }
+
+    .mobile-menu {
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .mobile-menu.closed {
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal { opacity: 1; transform: none; }
+      .draw-line { transform: scaleX(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     HEADER
+     Four supplied logos are used across the page.
+     Replace the filenames below with your actual logo files.
+====================================================== -->
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#080808]/95 backdrop-blur-xl">
+  <div class="mx-auto max-w-[1600px] px-5 lg:px-10">
+
+    <div class="flex min-h-[82px] items-center justify-between gap-5">
+
+      <!-- PARENT LOGO: Guardian Group -->
+      <!-- Suggested file: guardian-group.png -->
+      <a href="#home" class="flex shrink-0 items-center" aria-label="The Guardian Group home">
+        <img
+          src="guardian group-2.png"
+          alt="The Guardian Group"
+          class="h-10 w-auto max-w-[155px] object-contain sm:h-12"
+        >
+      </a>
+
+      <!-- COMPANY NAMES IN TOP BANNER -->
+      <nav aria-label="Operating companies"
+           class="hidden flex-1 items-center justify-center gap-5 xl:gap-8 lg:flex">
+
+        <a href="https://www.merlin.law"
+           target="_blank" rel="noopener noreferrer"
+           class="brand-link text-[10px] uppercase tracking-[.16em] text-white/75">
+          Merlin
+        </a>
+
+        <span class="h-5 w-px bg-white/15"></span>
+
+        <a href="https://www.guardianadvisory.group"
+           target="_blank" rel="noopener noreferrer"
+           class="brand-link text-[10px] uppercase tracking-[.11em] text-white/75">
+          Guardian Medical Advisory
+        </a>
+
+        <span class="h-5 w-px bg-white/15"></span>
+
+        <a href="https://www.guardiancivil.services"
+           target="_blank" rel="noopener noreferrer"
+           class="brand-link text-[10px] uppercase tracking-[.11em] text-white/75">
+          Guardian Civil Services
+        </a>
+      </nav>
+
+      <!-- QME IS SEPARATE FROM THE THREE COMPANIES -->
+      <a href="https://www.theguardian.group"
+         target="_blank" rel="noopener noreferrer"
+         class="hidden shrink-0 items-center gap-3 border border-[#c18246]/70 px-4 py-3 text-[9px] uppercase tracking-[.22em] text-[#d7a26b] transition hover:bg-[#c18246] hover:text-black sm:inline-flex">
+        QME <span aria-hidden="true">↗</span>
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="menuButton"
+              class="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] border border-white/15 lg:hidden"
+              type="button"
+              aria-label="Open navigation"
+              aria-expanded="false"
+              aria-controls="mobileMenu">
+        <span class="h-px w-5 bg-white"></span>
+        <span class="h-px w-5 bg-white"></span>
+        <span class="h-px w-5 bg-white"></span>
+      </button>
+    </div>
+
+    <!-- COMPACT MOBILE COMPANY RAIL -->
+    <div class="flex items-center gap-4 overflow-x-auto border-t border-white/[.07] py-3 lg:hidden">
+      <a href="https://www.merlin.law"
+         target="_blank" rel="noopener noreferrer"
+         class="shrink-0 text-[9px] uppercase tracking-[.14em] text-white/70">
+        Merlin
+      </a>
+      <span class="h-4 w-px shrink-0 bg-white/15"></span>
+      <a href="https://www.guardianadvisory.group"
+         target="_blank" rel="noopener noreferrer"
+         class="shrink-0 text-[9px] uppercase tracking-[.1em] text-white/70">
+        Guardian Medical Advisory
+      </a>
+      <span class="h-4 w-px shrink-0 bg-white/15"></span>
+      <a href="https://www.guardiancivil.services"
+         target="_blank" rel="noopener noreferrer"
+         class="shrink-0 text-[9px] uppercase tracking-[.1em] text-white/70">
+        Guardian Civil Services
+      </a>
+    </div>
+  </div>
+
+  <!-- MOBILE NAVIGATION -->
+  <div id="mobileMenu"
+       class="mobile-menu closed absolute left-0 right-0 top-full border-b border-white/10 bg-[#0b0b0b] shadow-2xl lg:hidden">
+
+    <nav class="px-6 py-4" aria-label="Mobile navigation">
+      <a href="#home" class="block border-b border-white/10 py-4 text-xs text-white/70">Home</a>
+      <a href="#companies" class="block border-b border-white/10 py-4 text-xs text-white/70">Our Companies</a>
+      <a href="#approach" class="block border-b border-white/10 py-4 text-xs text-white/70">Our Approach</a>
+      <a href="#about" class="block py-4 text-xs text-white/70">The Group</a>
+
+      <a href="https://www.theguardian.group"
+         target="_blank" rel="noopener noreferrer"
+         class="mt-3 flex items-center justify-center gap-3 bg-[#c18246] px-5 py-4 text-[10px] uppercase tracking-[.2em] text-black">
+        QME <span>↗</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+ 
+
+ 
+<!-- V4.1 HERO — THE INTELLIGENCE PYRAMID -->
+<section class="relative isolate overflow-hidden bg-[#0B0A0C] text-[#F3F0E8]">
+  <!-- Subtle technical grid -->
+  <div aria-hidden="true"
+       class="pointer-events-none absolute inset-0 opacity-[0.12]"
+       style="background-image:linear-gradient(rgba(198,161,91,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(198,161,91,.22) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 90%)">
+  </div>
+
+  <div aria-hidden="true"
+       class="pointer-events-none absolute -right-24 top-10 h-96 w-96 rounded-full bg-[#C6A15B]/10 blur-[100px]">
+  </div>
+
+  <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-6 pb-20 pt-16 sm:px-10 sm:pb-24 sm:pt-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-6 lg:px-12 lg:py-24">
+
+    <!-- LEFT: HERO COPY -->
+    <div class="hero-copy relative z-10 max-w-2xl">
+      <div class="mb-7 flex items-center gap-3">
+        <span class="h-px w-10 bg-[#C6A15B]"></span>
+        <span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#DCC38A] sm:text-xs">
+          The Guardian Group
+        </span>
+      </div>
+
+      <h1 class="font-serif text-5xl font-normal leading-[1.06] tracking-[-0.035em] sm:text-6xl lg:text-[4.6rem]">
+        Medical Insight
+        <span class="block italic text-[#C6A15B]">and Testimony.</span>
+        <span class="mt-3 block font-sans text-xl font-light leading-snug tracking-normal text-white/75 sm:text-2xl lg:text-[1.7rem]">
+          For Legal Disputes
+        </span>
+      </h1>
+
+      <p class="mt-7 max-w-md text-sm leading-7 text-white/60 sm:text-base">
+        Three specialist companies. One clearer path from complex evidence to informed legal decisions.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#companies"
+           class="group inline-flex items-center gap-3 border border-[#C6A15B]/70 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#F3F0E8] transition duration-300 hover:border-[#DCC38A] hover:bg-[#C6A15B]/10">
+          Explore our companies
+          <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+        <span class="text-[10px] uppercase tracking-[0.18em] text-white/35">
+          Precision · Evidence · Expertise
+        </span>
+      </div>
+    </div>
+
+    <!-- RIGHT: ANIMATED INTELLIGENCE PYRAMID -->
+    <div class="pyramid-scene relative mx-auto w-full max-w-[530px]">
+      <div class="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C6A15B]/[0.07] blur-3xl"></div>
+
+      <svg viewBox="0 0 520 460"
+           class="relative z-10 w-full overflow-visible"
+           role="img"
+           aria-labelledby="pyramid-title pyramid-desc">
+        <title id="pyramid-title">The Guardian Group intelligence pyramid</title>
+        <desc id="pyramid-desc">Three connected specialist levels, from complete record analysis to medical opinion and specialist testimony.</desc>
+
+        <defs>
+          <linearGradient id="pyramidGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E5CF9D"/>
+            <stop offset="50%" stop-color="#C6A15B"/>
+            <stop offset="100%" stop-color="#876638"/>
+          </linearGradient>
+          <linearGradient id="pyramidFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C6A15B" stop-opacity=".19"/>
+            <stop offset="100%" stop-color="#C6A15B" stop-opacity=".025"/>
+          </linearGradient>
+          <filter id="pyramidGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Architectural guide lines -->
+        <g fill="none" stroke="#C6A15B" stroke-opacity=".22" stroke-width="1">
+          <path d="M44 383 H476"/>
+          <path d="M74 398 H446"/>
+          <path d="M104 413 H416"/>
+          <path d="M260 30 V420" stroke-dasharray="2 8"/>
+        </g>
+
+        <!-- Base tier -->
+        <g class="pyramid-tier tier-base">
+          <path d="M260 66 L98 350 L422 350 Z"
+                fill="url(#pyramidFill)"
+                stroke="url(#pyramidGold)"
+                stroke-width="1.5"/>
+          <path d="M260 66 L152 255 L368 255 Z"
+                fill="#C6A15B" fill-opacity=".055"
+                stroke="#C6A15B" stroke-opacity=".6"
+                stroke-width="1.2"/>
+        </g>
+
+        <!-- Middle tier -->
+        <g class="pyramid-tier tier-middle">
+          <path d="M152 255 L368 255 L422 350 L98 350 Z"
+                fill="#C6A15B" fill-opacity=".065"
+                stroke="url(#pyramidGold)"
+                stroke-width="1.5"/>
+          <path d="M260 66 L152 255 L368 255 Z"
+                fill="#C6A15B" fill-opacity=".10"
+                stroke="url(#pyramidGold)"
+                stroke-width="1.4"/>
+        </g>
+
+        <!-- Top tier -->
+        <g class="pyramid-tier tier-top">
+          <path d="M260 66 L206 161 L314 161 Z"
+                fill="#C6A15B" fill-opacity=".23"
+                stroke="#E5CF9D"
+                stroke-width="1.6"
+                filter="url(#pyramidGlow)"/>
+          <path d="M206 161 H314 L368 255 H152 Z"
+                fill="#C6A15B" fill-opacity=".035"
+                stroke="#C6A15B" stroke-opacity=".85"
+                stroke-width="1.2"/>
+        </g>
+
+        <!-- Moving highlight -->
+        <path class="pyramid-sweep"
+              d="M260 66 L98 350 L422 350 Z"
+              fill="none"
+              stroke="#E5CF9D"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-dasharray="24 850"
+              filter="url(#pyramidGlow)"/>
+
+        <!-- Tier labels -->
+        <g font-family="Inter, sans-serif" text-anchor="middle">
+          <text x="260" y="119" fill="#F3F0E8" font-size="10" letter-spacing="2.2">SPECIALIST</text>
+          <text x="260" y="137" fill="#E5CF9D" font-size="13" font-weight="600">TESTIMONY</text>
+
+          <text x="260" y="211" fill="#F3F0E8" font-size="10" letter-spacing="2">MEDICAL</text>
+          <text x="260" y="229" fill="#E5CF9D" font-size="13" font-weight="600">INSIGHT &amp; OPINION</text>
+
+          <text x="260" y="300" fill="#F3F0E8" font-size="10" letter-spacing="2">COMPLETE RECORD</text>
+          <text x="260" y="319" fill="#E5CF9D" font-size="13" font-weight="600">ANALYSIS</text>
+        </g>
+
+        <!-- Side annotations -->
+        <g fill="none" stroke="#C6A15B" stroke-opacity=".65" stroke-width="1">
+          <path d="M314 125 H385 V110 H405"/>
+          <path d="M368 218 H405"/>
+          <path d="M422 310 H445"/>
+        </g>
+        <g fill="#DCC38A" font-family="Inter, sans-serif" font-size="9" letter-spacing="1.3">
+          <text x="410" y="103">EXPERT</text>
+          <text x="410" y="114">EVIDENCE</text>
+          <text x="410" y="208">OPINION</text>
+          <text x="410" y="220">SUPPORT</text>
+          <text x="449" y="300" text-anchor="middle">RECORD</text>
+          <text x="449" y="312" text-anchor="middle">REVIEW</text>
+        </g>
+
+        <text x="260" y="447" fill="#FFFFFF" fill-opacity=".38"
+              font-family="Inter, sans-serif" font-size="9"
+              letter-spacing="3" text-anchor="middle">
+          FROM RECORD TO RESOLUTION
+        </text>
+      </svg>
+
+      <div class="relative z-10 mt-1 flex items-center justify-center gap-3">
+        <span class="h-px w-8 bg-[#C6A15B]/50"></span>
+        <span class="text-[9px] uppercase tracking-[0.25em] text-white/40">
+          One group. Three specialist capabilities.
+        </span>
+        <span class="h-px w-8 bg-[#C6A15B]/50"></span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hero-copy {
+      animation: guardianRise .85s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .pyramid-scene {
+      animation: guardianRise 1s .15s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .pyramid-tier {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: guardianTier 1s both;
+    }
+    .tier-base { animation-delay: .25s; }
+    .tier-middle { animation-delay: .45s; }
+    .tier-top { animation-delay: .65s; }
+    .pyramid-sweep {
+      animation: guardianSweep 5s 1s ease-in-out infinite;
+    }
+    @keyframes guardianRise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes guardianTier {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes guardianSweep {
+      0%, 12% { stroke-dashoffset: 0; opacity: 0; }
+      20% { opacity: .8; }
+      75% { stroke-dashoffset: -874; opacity: .65; }
+      100% { stroke-dashoffset: -874; opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-copy, .pyramid-scene, .pyramid-tier, .pyramid-sweep {
+        animation: none !important;
+      }
+    }
+  </style>
+</section>
+
+
+
+
+  <!-- ====================================================
+       THREE OPERATING COMPANIES
+       One short descriptor per card. Each full card clicks.
+  ===================================================== -->
+
+  <section id="companies" class="bg-[#f3efe8] text-[#111111]">
+
+    <div class="mx-auto max-w-[1600px] px-6 py-20 md:py-28 lg:px-16">
+
+      <div class="reveal mb-10 flex flex-col justify-between gap-5 md:mb-14 md:flex-row md:items-end">
+        <div>
+          <div class="mb-5 flex items-center gap-3">
+            <span class="h-px w-9 bg-[#a56d38]"></span>
+            <span class="text-[9px] uppercase tracking-[.28em] text-[#a56d38]">
+              Our Companies
+            </span>
+          </div>
+          <h2 class="serif text-5xl leading-[.9] md:text-7xl">
+            One group.
+            <span class="text-black/30">Three disciplines.</span>
+          </h2>
+        </div>
+
+        <p class="max-w-xs text-xs leading-6 text-black/50">
+          The right level of medical insight for the matter at hand.
+        </p>
+      </div>
+
+
+      <div class="grid gap-4 md:grid-cols-3 md:gap-5">
+
+        <!-- MERLIN LOGO -->
+        <!-- Use supplied Merlin logo. Suggested file: merlin-logo.png -->
+        <a href="https://www.merlin.law"
+           target="_blank" rel="noopener noreferrer"
+           class="service-card reveal delay-1 flex min-h-[330px] flex-col justify-between border border-black/10 bg-[#faf8f4] p-7 md:min-h-[370px] md:p-8">
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] tracking-[.2em] text-black/35">01</span>
+              <span class="service-arrow text-xl text-[#a56d38]" aria-hidden="true">↗</span>
+            </div>
+
+            <div class="mt-10 flex h-[76px] items-center">
+              <img src="merlin.png"
+                   alt="Merlin"
+                   loading="lazy"
+                   class="max-h-[76px] max-w-full object-contain object-left">
+            </div>
+
+            <div class="mt-7 h-px w-10 bg-[#c18246]"></div>
+
+            <h3 class="serif mt-5 text-4xl leading-none md:text-[2.65rem]">
+              Complete Record
+              <br>Analysis
+            </h3>
+          </div>
+
+          <div class="mt-8 flex items-center justify-between border-t border-black/10 pt-5">
+            <span class="text-[9px] uppercase tracking-[.16em] text-black/45">merlin.law</span>
+            <span class="text-[9px] uppercase tracking-[.15em] text-[#a56d38]">Explore</span>
+          </div>
+        </a>
+
+
+        <!-- GUARDIAN MEDICAL ADVISORY LOGO -->
+        <!-- Use supplied dark logo. Suggested file: guardian-medical-advisory-dark.png -->
+        <a href="https://www.guardianadvisory.group"
+           target="_blank" rel="noopener noreferrer"
+           class="service-card reveal delay-2 flex min-h-[330px] flex-col justify-between border border-black/10 bg-[#faf8f4] p-7 md:min-h-[370px] md:p-8">
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] tracking-[.2em] text-black/35">02</span>
+              <span class="service-arrow text-xl text-[#a56d38]" aria-hidden="true">↗</span>
+            </div>
+
+            <div class="mt-10 flex h-[76px] items-center">
+              <img src="guardian group.png"
+                   alt="Guardian Medical Advisory"
+                   loading="lazy"
+                   class="max-h-[68px] max-w-full object-contain object-left">
+            </div>
+
+            <div class="mt-7 h-px w-10 bg-[#c18246]"></div>
+
+            <h3 class="serif mt-5 text-4xl leading-none md:text-[2.65rem]">
+              Medical Insight
+              <br>&amp; Opinion
+            </h3>
+          </div>
+
+          <div class="mt-8 flex items-center justify-between border-t border-black/10 pt-5">
+            <span class="text-[9px] uppercase tracking-[.12em] text-black/45">guardianadvisory.group</span>
+            <span class="text-[9px] uppercase tracking-[.15em] text-[#a56d38]">Explore</span>
+          </div>
+        </a>
+
+
+        <!-- GUARDIAN CIVIL SERVICES LOGO -->
+        <!-- Use supplied logo. Suggested file: guardian-civil-services.png -->
+        <a href="https://www.guardiancivil.services"
+           target="_blank" rel="noopener noreferrer"
+           class="service-card reveal delay-3 flex min-h-[330px] flex-col justify-between border border-black/10 bg-[#faf8f4] p-7 md:min-h-[370px] md:p-8">
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] tracking-[.2em] text-black/35">03</span>
+              <span class="service-arrow text-xl text-[#a56d38]" aria-hidden="true">↗</span>
+            </div>
+
+            <div class="mt-10 flex h-[76px] items-center">
+              <img src="Civil Services Gray.White-Transparent.png"
+                   alt="Guardian Civil Services"
+                   loading="lazy"
+                   class="max-h-[200px] max-w-full object-contain object-left">
+            </div>
+
+            <div class="mt-7 h-px w-10 bg-[#c18246]"></div>
+
+            <h3 class="serif mt-5 text-4xl leading-none md:text-[2.65rem]">
+              Specialist
+              <br>Testimony
+            </h3>
+          </div>
+
+          <div class="mt-8 flex items-center justify-between border-t border-black/10 pt-5">
+            <span class="text-[9px] uppercase tracking-[.1em] text-black/45">guardiancivil.services</span>
+            <span class="text-[9px] uppercase tracking-[.15em] text-[#a56d38]">Explore</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       COMPACT SERVICE PYRAMID
+       Kept from V3, simplified to avoid repetitive paragraphs.
+  ===================================================== -->
+
+  <section id="approach" class="bg-[#101010]">
+
+    <div class="mx-auto max-w-[1400px] px-6 py-20 md:py-28 lg:px-16">
+
+      <div class="reveal mb-14 text-center">
+        <div class="mb-5 flex items-center justify-center gap-3">
+          <span class="h-px w-8 bg-[#c18246]"></span>
+          <span class="text-[9px] uppercase tracking-[.3em] text-[#d7a26b]">
+            Our Approach
+          </span>
+          <span class="h-px w-8 bg-[#c18246]"></span>
+        </div>
+
+        <h2 class="serif text-5xl leading-[.9] md:text-7xl">
+          Match the medicine
+          <br>
+          <span class="text-white/40">to the matter.</span>
+        </h2>
+      </div>
+
+
+      <div class="mx-auto max-w-4xl">
+
+        <!-- TOP TIER -->
+        <a href="https://www.guardiancivil.services"
+           target="_blank" rel="noopener noreferrer"
+           class="pyramid-tier reveal delay-1 mx-auto block w-full border border-white/15 p-6 md:w-[48%] md:p-7">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h3 class="serif text-3xl md:text-4xl">Civil Services</h3>
+              <p class="mt-2 text-[9px] uppercase tracking-[.24em] text-white/40">Testimony</p>
+            </div>
+            <span class="text-[#d7a26b]">↗</span>
+          </div>
+        </a>
+
+        <div class="mx-auto h-7 w-px bg-[#c18246]/40"></div>
+
+        <!-- MIDDLE TIER -->
+        <a href="https://www.guardianadvisory.group"
+           target="_blank" rel="noopener noreferrer"
+           class="pyramid-tier reveal delay-2 mx-auto block w-full border border-white/15 p-6 md:w-[70%] md:p-7">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h3 class="serif text-3xl md:text-4xl">Medical Advisory</h3>
+              <p class="mt-2 text-[9px] uppercase tracking-[.24em] text-white/40">Opinion</p>
+            </div>
+            <span class="text-[#d7a26b]">↗</span>
+          </div>
+        </a>
+
+        <div class="mx-auto h-7 w-px bg-[#c18246]/40"></div>
+
+        <!-- FOUNDATION TIER -->
+        <a href="https://www.merlin.law"
+           target="_blank" rel="noopener noreferrer"
+           class="pyramid-tier reveal delay-3 mx-auto block w-full border border-[#c18246]/40 p-6 md:w-[92%] md:p-8">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h3 class="serif text-4xl md:text-5xl">Merlin</h3>
+              <p class="mt-2 text-[9px] uppercase tracking-[.24em] text-white/40">Record</p>
+            </div>
+            <span class="text-[#d7a26b]">↗</span>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="reveal delay-4 mt-12 text-center text-[9px] uppercase tracking-[.22em] text-white/30">
+        Every matter begins with the record.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       SHORT GROUP SIGNATURE
+       Replaces the repeated long About/CTA sections in V3.
+  ===================================================== -->
+
+  <section id="about" class="bg-[#f3efe8] text-[#111111]">
+
+    <div class="mx-auto max-w-[1400px] px-6 py-20 md:py-24 lg:px-16">
+
+      <div class="reveal flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+
+        <div>
+          <p class="mb-5 text-[9px] uppercase tracking-[.3em] text-[#a56d38]">
+            The Guardian Group
+          </p>
+
+          <h2 class="serif max-w-4xl text-5xl leading-[.9] md:text-7xl">
+            Medical insight.
+            <br>
+            <span class="text-black/35">Clearer decisions.</span>
+          </h2>
+        </div>
+
+        <a href="#companies"
+           class="inline-flex shrink-0 items-center gap-5 border border-black/20 px-6 py-4 text-[9px] uppercase tracking-[.2em] transition hover:bg-black hover:text-white">
+          Find your company
+          <span>→</span>
+        </a>
+
+      </div>
+
+      <div class="mt-14 border-t border-black/10 pt-5">
+        <p class="serif text-lg italic text-black/45">
+          “Knowledge itself is power.” <span class="font-sans text-xs not-italic">— Francis Bacon</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="border-t border-white/10 bg-[#080808]">
+
+  <div class="mx-auto flex max-w-[1600px] flex-col gap-7 px-6 py-9 sm:flex-row sm:items-center sm:justify-between lg:px-16">
+
+    <!-- Reuse the Guardian Group parent logo -->
+    <a href="#home" aria-label="Back to top">
+      <img src="guardian group-2.png"
+           alt="The Guardian Group"
+           loading="lazy"
+           class="h-24 w-auto max-w-[200px] object-contain opacity-75">
+    </a>
+
+    <div class="flex flex-wrap gap-x-6 gap-y-3 text-[9px] uppercase tracking-[.13em] text-white/40">
+      <a class="transition hover:text-[#d7a26b]" href="https://www.merlin.law" target="_blank" rel="noopener noreferrer">Merlin</a>
+      <a class="transition hover:text-[#d7a26b]" href="https://www.guardianadvisory.group" target="_blank" rel="noopener noreferrer">Medical Advisory</a>
+      <a class="transition hover:text-[#d7a26b]" href="https://www.guardiancivil.services" target="_blank" rel="noopener noreferrer">Civil Services</a>
+      <a class="transition hover:text-[#d7a26b]" href="https://www.theguardian.group" target="_blank" rel="noopener noreferrer">QME</a>
+    </div>
+
+    <p class="text-[9px] text-white/25">
+      © 2026 The Guardian Group
+    </p>
+
+  </div>
+</footer>
+
+
+<!-- ======================================================
+     MOBILE MENU
+====================================================== -->
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.classList.add('closed');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation');
+  }
+
+  menuButton.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      mobileMenu.classList.remove('closed');
+      mobileMenu.classList.add('open');
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.setAttribute('aria-label', 'Close navigation');
+    }
+  });
+
+  mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+</script>
+
+</body>
+</html>
